@@ -1,0 +1,23 @@
+.workplace {
+  display: flex;
+  flex-direction: column;
+}
+.hint {
+  height: fit-content;
+}
+input {
+  font-size: 1rem !important;
+  height: fit-content;
+}
+.companyTitle {
+  font-size: 2rem;
+}
+.jobRole {
+  font-size: 1.5rem;
+}
+.accomplishments {
+  font-size: 1rem;
+}
+button {
+  width: fit-content;
+}

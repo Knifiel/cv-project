@@ -1,0 +1,20 @@
+.workplace {
+  display: flex;
+  flex-direction: column;
+}
+.hint {
+  height: fit-content;
+}
+input {
+  font-size: 1rem !important;
+  height: fit-content;
+}
+.eduFacilityTitle {
+  font-size: 2rem;
+}
+.degreeAndModules {
+  font-size: 1rem;
+}
+button {
+  width: fit-content;
+}
