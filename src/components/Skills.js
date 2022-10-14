@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// eslint-disable-next-line no-unused-vars
 import skillStyles from '../styles/Skills.module.css'
 import styles from '../styles/Card.module.css'
 
