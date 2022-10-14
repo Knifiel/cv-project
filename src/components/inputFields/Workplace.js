@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TextAreaField from './TextAreaField'
 import TextField from './TextField'
-import '../../styles/Workplace.css'
+import styles from '../../styles/Card.module.css'
 import DatePicker from './DatePicker'
 
 export class Workplace extends Component {
@@ -15,27 +15,27 @@ export class Workplace extends Component {
   render() {
     const { isEditing, handleDelete } = this.props
     return (
-      <div className='workplace'>
+      <div className={styles.card}>
         <TextField
           isEditing={isEditing}
-          className='companyTitle'
+          className={styles.title}
           hint='Company name:'
           placeholder='Unnamed Burger Company inc.'
         />
         <TextField
           isEditing={isEditing}
-          className='jobRole'
+          className={styles.subTitle}
           hint='Your job role:'
           placeholder='Senior Burgermaker'
         />
         <DatePicker
           isEditing={isEditing}
-          className='date'
+          className={styles.date}
           hint='Period of work. Leave "to" field empty if you are still working there'
         />
         <TextAreaField
           isEditing={isEditing}
-          className='accomplishments'
+          className={styles.content}
           hint='Write your role responsibilities and accomplishments there'
           placeholder='I invented best selling burger of 2018!'
         />
@@ -43,7 +43,7 @@ export class Workplace extends Component {
           <button
             type='button'
             onClick={() => handleDelete(this.state.id)}>
-            Delete workplace
+            Delete
           </button>
         )}
       </div>

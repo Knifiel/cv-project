@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../../styles/TextAreaField.css'
+import styles from '../../styles/TextAreaField.module.css'
 
 export class TextAreaField extends Component {
   constructor(props) {
@@ -20,10 +20,10 @@ export class TextAreaField extends Component {
     return (
       <>
         {isEditing ? (
-          <label className='inputField'>
-            <span className='hint'>{hint}</span>
+          <label className={styles.inputField}>
+            <span className={styles.hint}>{hint}</span>
             <textarea
-              className={`textInput ${className}`}
+              className={styles.textarea}
               value={this.state.value}
               onChange={this.handleChange}
               placeholder={this.props.placeholder}

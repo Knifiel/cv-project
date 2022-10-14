@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-// import '../../styles/TextField.css'
-
+import styles from '../../styles/TextField.module.css'
 export class DatePicker extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      from: null,
-      to: null,
+      from: '',
+      to: '',
     }
   }
 
@@ -17,26 +16,24 @@ export class DatePicker extends Component {
     }))
   }
   render() {
-    const { isEditing, className, hint } = this.props
+    const { isEditing, hint } = this.props
     return (
       <>
         {isEditing ? (
-          <label className='inputField'>
+          <label className={styles.inputField}>
             <span className='hint'>{hint}</span>
             <span>
-              From
+              {`From `}
               <input
                 type='date'
-                className={`dateInput${className}`}
                 name='from'
                 value={this.from}
                 onChange={this.handleChange}
                 placeholder='example@email'
               />
-              to
+              {` to `}
               <input
                 type='date'
-                className={`dateInput${className}`}
                 name='to'
                 value={this.state.to}
                 onChange={this.handleChange}
@@ -46,7 +43,7 @@ export class DatePicker extends Component {
           </label>
         ) : (
           this.state.from && (
-            <span className={className}>
+            <span className='date'>
               from {this.state.from} to{' '}
               {this.state.to ? this.state.to : 'present'}
             </span>

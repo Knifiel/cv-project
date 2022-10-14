@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TextAreaField from './inputFields/TextAreaField'
+import styles from '../styles/PersonalStatement.module.css'
 
 export class PersonalStatement extends Component {
   constructor(props) {
@@ -16,19 +17,26 @@ export class PersonalStatement extends Component {
   }
   render() {
     const { isEditing } = this.state
+    const { hideEdit } = this.props
     return (
-      <div className='statement'>
+      <div className={`${styles.card} personalStatementCard`}>
         <TextAreaField
           isEditing={isEditing}
           className='personalStatement'
           hint='Write your personal statement'
           placeholder='I want a better job!'
         />
-        <button
-          className='editButton'
-          onClick={this.toggleEdit}>
-          {isEditing ? 'Complete' : 'Edit'}
-        </button>
+        {!hideEdit && (
+          <button
+            type='button'
+            className={styles.edit}
+            onClick={() => {
+              this.toggleEdit()
+              this.props.handleEditChange('editingStatement')
+            }}>
+            {isEditing ? 'Complete' : 'Edit'}
+          </button>
+        )}
       </div>
     )
   }

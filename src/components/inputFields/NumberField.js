@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../../styles/TextField.css'
+import styles from '../../styles/TextField.module.css'
 
 export class NumberField extends Component {
   constructor(props) {
@@ -20,12 +20,11 @@ export class NumberField extends Component {
     return (
       <>
         {isEditing ? (
-          <label className='inputField'>
-            <span className='hint'>{hint}</span>
+          <label className={styles.inputField}>
+            <span className={styles.hint}>{hint}</span>
             <input
               type='tel'
               inputMode='tel'
-              className={`textInput ${className}`}
               value={this.state.value}
               onChange={this.handleChange}
               placeholder='0-123-34-56'

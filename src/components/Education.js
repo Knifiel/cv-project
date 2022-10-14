@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import Workplace from './inputFields/Workplace'
+import EducationFacility from './inputFields/EducationFacility'
 import uniqid from 'uniqid'
 import styles from '../styles/Card.module.css'
 
-export class WorkExperience extends Component {
+export class Education extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       isEditing: true,
-      workplaces: [],
+      facilities: [],
     }
     this.handleDelete.bind(this)
   }
@@ -20,42 +20,37 @@ export class WorkExperience extends Component {
   }
   handleAdd = () => {
     const id = uniqid()
-    const workplace = {
-      element: (isEditing, deleteHandler, hideEdit) => (
-        <Workplace
+    const facility = {
+      element: (isEditing, deleteHandler) => (
+        <EducationFacility
           isEditing={isEditing}
           handleDelete={deleteHandler}
-          hideEdit={hideEdit}
           id={id}
         />
       ),
       id: id,
     }
     this.setState((prevState) => ({
-      workplaces: prevState.workplaces.concat(workplace),
+      facilities: prevState.facilities.concat(facility),
     }))
   }
   handleDelete = (id) => {
-    const newWorkplaces = this.state.workplaces.filter((n) => n.id !== id)
+    const newFacilities = this.state.facilities.filter((n) => n.id !== id)
     this.setState(() => ({
-      workplaces: newWorkplaces,
+      facilities: newFacilities,
     }))
   }
   render() {
-    const { workplaces, isEditing } = this.state
+    const { facilities, isEditing } = this.state
     const { hideEdit } = this.props
     return (
       <div className={styles.card}>
-        {isEditing && workplaces.length === 0 ? <h3>Work Experience</h3> : null}
-        {workplaces.length !== 0 ? (
-          <h3>Work Experience</h3>
-        ) : (
-          'Has no experience working'
-        )}
-        {workplaces.map((workplace) => {
+        {isEditing && facilities.length === 0 ? <h3>Education</h3> : null}
+        {facilities.length !== 0 ? <h3>Education</h3> : 'Has no education'}
+        {facilities.map((facility) => {
           return (
-            <React.Fragment key={workplace.id}>
-              {workplace.element(isEditing, this.handleDelete, hideEdit)}
+            <React.Fragment key={facility.id}>
+              {facility.element(isEditing, this.handleDelete)}
             </React.Fragment>
           )
         })}
@@ -70,10 +65,10 @@ export class WorkExperience extends Component {
         {!hideEdit && (
           <button
             type='button'
-            className={styles.edit}
+            className='edit'
             onClick={() => {
               this.toggleEdit()
-              this.props.handleEditChange('editingWorkExp')
+              this.props.handleEditChange('editingEducation')
             }}>
             {isEditing ? 'Complete' : 'Edit'}
           </button>
@@ -83,4 +78,4 @@ export class WorkExperience extends Component {
   }
 }
 
-export default WorkExperience
+export default Education

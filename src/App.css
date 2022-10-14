@@ -1,0 +1,52 @@
+* {
+  transition: all 500ms;
+}
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+  width: 816px;
+  height: 1056px;
+  padding: 2em;
+}
+button:hover {
+  cursor: pointer;
+}
+.hideEdit:disabled:hover:after {
+  content: 'Complete each section to hide all edit buttons';
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.hideEdit {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  opacity: 0;
+  border-left: 10em;
+  border-right: 10em;
+  border-style: solid;
+  border-color: transparent;
+  background-color: transparent;
+}
+.hideEdit:hover {
+  opacity: 1;
+}
+
+.App > div {
+  width: 50%;
+  padding: 1em;
+  place-items: flex-start;
+}
+.App > div:nth-child(2n-1) {
+  background-color: rgba(230, 230, 230);
+}
+.App > div:nth-child(2n) {
+  background-color: rgba(200, 200, 200);
+}
