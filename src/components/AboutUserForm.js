@@ -1,4 +1,4 @@
-import styles from '../styles/AboutUserForm.css'
+import styles from '../styles/AboutUserForm.module.css'
 import React, { useState } from 'react'
 
 export const AboutUserForm = () => {
@@ -10,11 +10,12 @@ export const AboutUserForm = () => {
   }
   return (
     <div>
-      <form>
+      <form className={styles.form}>
         <h3>Contact info:</h3>
         <label>
           Full Name:
           <input
+            className={styles.input}
             type='text'
             name='name'
             value={formData.name ? formData.name : ''}
@@ -26,6 +27,7 @@ export const AboutUserForm = () => {
         <label>
           Job:
           <input
+            className={styles.input}
             type='text'
             name='job'
             value={formData.job ? formData.job : ''}
@@ -37,6 +39,7 @@ export const AboutUserForm = () => {
         <label>
           Email:
           <input
+            className={styles.input}
             type='email'
             name='email'
             value={formData.email ? formData.email : ''}
@@ -47,6 +50,7 @@ export const AboutUserForm = () => {
         <label>
           Phone:
           <input
+            className={styles.input}
             type='numeric'
             name='phone'
             value={formData.phone ? formData.phone : ''}
@@ -58,6 +62,7 @@ export const AboutUserForm = () => {
         <label>
           linkedIn profile name:
           <input
+            className={styles.input}
             type='text'
             name='linkedIn'
             value={formData.linkedIn ? formData.linkedIn : ''}
@@ -68,6 +73,7 @@ export const AboutUserForm = () => {
         <label>
           Location:
           <input
+            className={styles.input}
             type='text'
             name='location'
             value={formData.location ? formData.location : ''}
@@ -79,6 +85,7 @@ export const AboutUserForm = () => {
         <label>
           Personal statement:
           <textarea
+            className={styles.textarea}
             name='statement'
             value={formData.statement ? formData.statement : ''}
             placeholder='I have worked as a spy for governments of 18 different countries!'

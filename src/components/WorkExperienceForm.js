@@ -18,6 +18,7 @@ function WorkExperienceForm() {
     e.preventDefault()
     const workplace = { ...formData, id: uniqid() }
     setWorkplaces((prev) => [...prev, workplace])
+    setaddingWorkplace(false)
     setformData({})
   }
 
@@ -27,7 +28,6 @@ function WorkExperienceForm() {
   }
 
   const handleEdit = (data) => {
-    console.log(workplaces)
     const newWorkplaces = workplaces.map((w) => {
       if (w.id === data.id) {
         return data
@@ -38,6 +38,15 @@ function WorkExperienceForm() {
   }
   return (
     <div>
+      {workplaces.map((workplace) => (
+        <Workplace
+          workplace={workplace}
+          key={workplace.id}
+          handleDelete={handleDelete}
+          handleEdit={handleEdit}
+        />
+      ))}
+
       <button onClick={() => setaddingWorkplace((prev) => !prev)}>
         {!addingWorkplace ? 'Add workplace' : 'Cancel'}
       </button>
@@ -48,14 +57,6 @@ function WorkExperienceForm() {
           handleSubmit={handleSubmit}
         />
       )}
-      {workplaces.map((workplace) => (
-        <Workplace
-          workplace={workplace}
-          key={workplace.id}
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-        />
-      ))}
     </div>
   )
 }

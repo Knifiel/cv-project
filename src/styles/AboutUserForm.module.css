@@ -1,12 +1,9 @@
 * {
-  margin: 0;
-  padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-form {
+.form {
   margin-top: 1em;
   display: flex;
   flex-direction: column;
@@ -14,16 +11,16 @@ form {
   gap: 0.3em;
   border: 1px dashed black;
 }
-form > label {
-  width: 500px;
+.form > label {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
-input {
-  width: 20em;
+.input {
+  width: 50%;
 }
-textarea {
-  width: 20em;
+.textarea {
+  width: 50%;
   resize: none;
   height: 5em;
 }

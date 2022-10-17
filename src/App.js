@@ -1,10 +1,11 @@
 import React from 'react'
 import { AboutUserForm } from './components/AboutUserForm'
 import WorkExperienceForm from './components/WorkExperienceForm'
+import './App.css'
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <AboutUserForm />
       <WorkExperienceForm />
     </div>

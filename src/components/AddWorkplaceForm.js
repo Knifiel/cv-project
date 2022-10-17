@@ -1,11 +1,15 @@
 import React from 'react'
+import styles from '../styles/AddWorkplaceForm.module.css'
 
 function AddWorkplaceForm({ formData, handleChange, handleSubmit }) {
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit}>
       <label>
         Company title:
         <input
+          className={styles.input}
           type='text'
           name='title'
           value={formData.title ? formData.title : ''}
@@ -16,6 +20,7 @@ function AddWorkplaceForm({ formData, handleChange, handleSubmit }) {
       <label>
         Role:
         <input
+          className={styles.input}
           type='text'
           name='role'
           value={formData.role ? formData.role : ''}
@@ -25,26 +30,31 @@ function AddWorkplaceForm({ formData, handleChange, handleSubmit }) {
       </label>
       <label>
         Work period:
-        <input
-          type='date'
-          name='dateFrom'
-          value={formData.dateFrom ? formData.dateFrom : ''}
-          onChange={handleChange}
-          required
-        />
-        {` - `}
-        <input
-          type='date'
-          name='dateTo'
-          value={formData.dateTo ? formData.dateTo : ''}
-          onChange={handleChange}
-          required
-        />
+        <div className={styles.dateField}>
+          <input
+            className={styles.date}
+            type='date'
+            name='dateFrom'
+            value={formData.dateFrom ? formData.dateFrom : ''}
+            onChange={handleChange}
+            required
+          />
+          {` - `}
+          <input
+            className={styles.date}
+            type='date'
+            name='dateTo'
+            value={formData.dateTo ? formData.dateTo : ''}
+            onChange={handleChange}
+            required
+          />
+        </div>
       </label>
 
       <label>
         Responsibilities and/or achievements:
         <textarea
+          className={styles.textarea}
           name='jobDesc'
           value={formData.jobDesc ? formData.jobDesc : ''}
           onChange={handleChange}
