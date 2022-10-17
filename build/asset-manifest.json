@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.eead7dcc.css",
-    "main.js": "/static/js/main.80a92712.js",
-    "index.html": "/index.html",
-    "static/media/linkedin.svg": "/static/media/linkedin.eaccfc4b453ff94aff73.svg",
-    "static/media/phone.svg": "/static/media/phone.0b454d6aeda1578fa2ba.svg",
-    "static/media/map-marker.svg": "/static/media/map-marker.8ed820373498e050ba48.svg",
-    "static/media/email.svg": "/static/media/email.c7a364af28c1fc7cbb30.svg",
-    "main.eead7dcc.css.map": "/static/css/main.eead7dcc.css.map",
-    "main.80a92712.js.map": "/static/js/main.80a92712.js.map"
+    "main.css": "/cv-project/static/css/main.6e15658c.css",
+    "main.js": "/cv-project/static/js/main.80a92712.js",
+    "index.html": "/cv-project/index.html",
+    "static/media/linkedin.svg": "/cv-project/static/media/linkedin.eaccfc4b453ff94aff73.svg",
+    "static/media/phone.svg": "/cv-project/static/media/phone.0b454d6aeda1578fa2ba.svg",
+    "static/media/map-marker.svg": "/cv-project/static/media/map-marker.8ed820373498e050ba48.svg",
+    "static/media/email.svg": "/cv-project/static/media/email.c7a364af28c1fc7cbb30.svg",
+    "main.6e15658c.css.map": "/cv-project/static/css/main.6e15658c.css.map",
+    "main.80a92712.js.map": "/cv-project/static/js/main.80a92712.js.map"
   },
   "entrypoints": [
-    "static/css/main.eead7dcc.css",
+    "static/css/main.6e15658c.css",
     "static/js/main.80a92712.js"
   ]
 }
