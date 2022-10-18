@@ -1,6 +1,12 @@
 .App {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  max-width: 500px;
   padding: 0.5em;
+  gap: 1em;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px 3px grey;
 }

@@ -1,25 +1,26 @@
 import React, { useState } from 'react'
 import uniqid from 'uniqid'
-import AddWorkplaceForm from './AddWorkplaceForm'
-import Workplace from './Workplace'
+import styles from '../styles/WorkExperience.module.css'
+import AddCardForm from './AddCardForm'
+import Card from './Card'
 
-function WorkExperienceForm() {
+function WorkExperience() {
   const [workplaces, setWorkplaces] = useState([])
-  const [addingWorkplace, setaddingWorkplace] = useState(false)
-  const [formData, setformData] = useState({})
+  const [addingWorkplace, setAddingWorkplace] = useState(false)
+  const [formData, setFormData] = useState({})
 
   const handleChange = (e) => {
     const value = e.target.value
     const name = e.target.name
-    setformData({ ...formData, [name]: value })
+    setFormData({ ...formData, [name]: value })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const workplace = { ...formData, id: uniqid() }
     setWorkplaces((prev) => [...prev, workplace])
-    setaddingWorkplace(false)
-    setformData({})
+    setAddingWorkplace(false)
+    setFormData({})
   }
 
   const handleDelete = (id) => {
@@ -36,23 +37,34 @@ function WorkExperienceForm() {
     })
     setWorkplaces(newWorkplaces)
   }
+  const headings = {
+    titleLabel: 'Company title:',
+    subtitleLabel: 'Role:',
+    datePickerLabel: 'Work period:',
+    descLabel: 'Responsibilities and achievements:',
+  }
   return (
-    <div>
+    <div className={styles.main}>
+      <h3> Work history: </h3>
       {workplaces.map((workplace) => (
-        <Workplace
-          workplace={workplace}
+        <Card
+          card={workplace}
           key={workplace.id}
+          headings={headings}
           handleDelete={handleDelete}
           handleEdit={handleEdit}
         />
       ))}
 
-      <button onClick={() => setaddingWorkplace((prev) => !prev)}>
+      <button
+        className={styles.button}
+        onClick={() => setAddingWorkplace((prev) => !prev)}>
         {!addingWorkplace ? 'Add workplace' : 'Cancel'}
       </button>
       {addingWorkplace && (
-        <AddWorkplaceForm
+        <AddCardForm
           formData={formData}
+          headings={headings}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
         />
@@ -61,4 +73,4 @@ function WorkExperienceForm() {
   )
 }
 
-export default WorkExperienceForm
+export default WorkExperience

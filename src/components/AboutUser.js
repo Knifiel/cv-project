@@ -1,7 +1,7 @@
-import styles from '../styles/AboutUserForm.module.css'
+import styles from '../styles/AboutUser.module.css'
 import React, { useState } from 'react'
 
-export const AboutUserForm = () => {
+export const AboutUser = () => {
   const [formData, setFormData] = useState({})
   const handleChange = (e) => {
     const value = e.target.value
@@ -23,7 +23,6 @@ export const AboutUserForm = () => {
             onChange={handleChange}
           />
         </label>
-
         <label>
           Job:
           <input
@@ -35,7 +34,6 @@ export const AboutUserForm = () => {
             onChange={handleChange}
           />
         </label>
-
         <label>
           Email:
           <input
@@ -58,7 +56,6 @@ export const AboutUserForm = () => {
             onChange={handleChange}
           />
         </label>
-
         <label>
           linkedIn profile name:
           <input
@@ -81,7 +78,6 @@ export const AboutUserForm = () => {
             onChange={handleChange}
           />
         </label>
-
         <label>
           Personal statement:
           <textarea

@@ -1,13 +1,13 @@
 import React from 'react'
-import styles from '../styles/AddWorkplaceForm.module.css'
+import styles from '../styles/AddCardForm.module.css'
 
-function AddWorkplaceForm({ formData, handleChange, handleSubmit }) {
+function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
   return (
     <form
       className={styles.form}
       onSubmit={handleSubmit}>
       <label>
-        Company title:
+        <span className={styles.labelText}>{headings.titleLabel}</span>
         <input
           className={styles.input}
           type='text'
@@ -18,32 +18,39 @@ function AddWorkplaceForm({ formData, handleChange, handleSubmit }) {
         />
       </label>
       <label>
-        Role:
+        <span className={styles.labelText}>{headings.subtitleLabel}</span>
         <input
           className={styles.input}
           type='text'
-          name='role'
-          value={formData.role ? formData.role : ''}
+          name='subtitle'
+          value={formData.subtitle ? formData.subtitle : ''}
           onChange={handleChange}
           required
         />
       </label>
       <label>
-        Work period:
+        <span className={styles.labelText}>{headings.datePickerLabel}</span>
         <div className={styles.dateField}>
+          {` From `}
           <input
             className={styles.date}
-            type='date'
+            type='number'
             name='dateFrom'
+            min='1900'
+            max='2100'
+            step='1'
             value={formData.dateFrom ? formData.dateFrom : ''}
             onChange={handleChange}
             required
           />
-          {` - `}
+          {` to `}
           <input
             className={styles.date}
-            type='date'
+            type='number'
             name='dateTo'
+            min='1900'
+            max='2100'
+            step='1'
             value={formData.dateTo ? formData.dateTo : ''}
             onChange={handleChange}
             required
@@ -52,18 +59,22 @@ function AddWorkplaceForm({ formData, handleChange, handleSubmit }) {
       </label>
 
       <label>
-        Responsibilities and/or achievements:
+        <span className={styles.labelText}>{headings.descLabel}</span>
         <textarea
           className={styles.textarea}
-          name='jobDesc'
-          value={formData.jobDesc ? formData.jobDesc : ''}
+          name='desc'
+          value={formData.desc ? formData.desc : ''}
           onChange={handleChange}
           required
         />
       </label>
-      <button type='submit'>Confirm</button>
+      <button
+        className={styles.button}
+        type='submit'>
+        Confirm
+      </button>
     </form>
   )
 }
 
-export default AddWorkplaceForm
+export default AddCardForm

@@ -4,12 +4,12 @@
   box-sizing: border-box;
 }
 .form {
-  margin-top: 1em;
+  padding: 0.3em;
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 0.3em;
-  border: 1px dashed black;
+  height: 11em;
 }
 .form > label {
   width: 100%;
@@ -28,7 +28,15 @@
   width: 50%;
   display: flex;
   justify-content: space-between;
+  gap: 1em;
 }
 .date {
   width: 100%;
+}
+.button {
+  border-radius: 5px;
+}
+.labelText {
+  width: 50%;
+  word-wrap: break-word;
 }

@@ -1,13 +1,15 @@
 import React from 'react'
-import { AboutUserForm } from './components/AboutUserForm'
-import WorkExperienceForm from './components/WorkExperienceForm'
+import { AboutUser } from './components/AboutUser'
+import WorkExperience from './components/WorkExperience'
 import './App.css'
+import Education from './components/Education'
 
 function App() {
   return (
     <div className='App'>
-      <AboutUserForm />
-      <WorkExperienceForm />
+      <AboutUser />
+      <WorkExperience />
+      <Education />
     </div>
   )
 }
