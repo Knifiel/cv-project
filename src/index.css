@@ -6,9 +6,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(204, 204, 204);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+@media print {
+  body {
+    background: white;
+  }
+  .App {
+    width: 100vw;
+    box-shadow: none !important;
+  }
+  button {
+    display: none;
+  }
+  .App > div,
+  .App > form {
+    border: none;
+  }
+  .App > div > div {
+    position: relative;
+  }
 }

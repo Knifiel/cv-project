@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import uniqid from 'uniqid'
-import styles from '../styles/WorkExperience.module.css'
+import styles from '../styles/WorkExpAndEducation.module.css'
 import AddCardForm from './AddCardForm'
 import Card from './Card'
 
@@ -45,7 +45,7 @@ function WorkExperience() {
   }
   return (
     <div className={styles.main}>
-      <h3> Work history: </h3>
+      <h3> Work Experience: </h3>
       {workplaces.map((workplace) => (
         <Card
           card={workplace}

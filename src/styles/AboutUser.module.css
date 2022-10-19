@@ -25,3 +25,72 @@
   resize: none;
   height: 5em;
 }
+.button {
+  border-radius: 10px;
+  width: 50%;
+  align-self: flex-end;
+}
+/* Styles for submitted form presentation */
+.main {
+  display: grid;
+  grid-template-areas:
+    'name name'
+    'job job'
+    'statement statement'
+    'email phone'
+    'linkedIn location'
+    '. button';
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+  padding: 0.5em;
+  gap: 0.5em;
+  width: 100%;
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(100, 100, 100, 1) 50%,
+      rgba(250, 250, 250, 0.5) 100%
+    )
+    0.5;
+}
+.name {
+  grid-area: name;
+  font-size: 1.5em;
+}
+.job {
+  grid-area: job;
+}
+.email {
+  grid-area: email;
+}
+.phone {
+  grid-area: phone;
+}
+.linkedIn {
+  grid-area: linkedIn;
+}
+.location {
+  grid-area: location;
+}
+.statement {
+  grid-area: statement;
+}
+.main > .button {
+  grid-area: button;
+}
+.email,
+.linkedIn,
+.location,
+.phone {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+  gap: 1em;
+  place-items: center;
+  word-break: keep-all;
+}
+.main img {
+  height: 2em;
+}

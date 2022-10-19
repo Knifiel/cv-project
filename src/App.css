@@ -1,9 +1,13 @@
 .App {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 100%;
+  width: 21.5cm;
   padding: 0.5em;
   gap: 1em;
+  background: white;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
 }
 
 button:hover {

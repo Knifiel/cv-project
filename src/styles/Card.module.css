@@ -4,10 +4,22 @@
   box-sizing: border-box;
 }
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 0.5em;
-  height: 11em;
+  height: fit-content;
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(100, 100, 100, 1) 50%,
+      rgba(250, 250, 250, 0.5) 100%
+    )
+    0.5;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 .title {
   font-weight: 500;
@@ -23,13 +35,9 @@
 }
 .desc {
   font-size: 1em;
-}
-.buttons {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  gap: 1em;
-  margin-top: 0.3em;
+  white-space: pre;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 .buttons > button {
   width: 5em;

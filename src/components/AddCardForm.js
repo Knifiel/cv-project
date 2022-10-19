@@ -1,7 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/AddCardForm.module.css'
 
 function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
+  const [selectedYear, setselectedYear] = useState(new Date().getFullYear())
+  const [dateListTo, setdateListTo] = useState([])
+  const [dateListFrom, setdateListFrom] = useState([
+    <option
+      key='0'
+      value={new Date().getFullYear()}>
+      {new Date().getFullYear()}
+    </option>,
+  ])
+  useEffect(() => {
+    const initialDateListFrom = []
+    for (let i = 0; i < 60; i++) {
+      initialDateListFrom.push(
+        <option
+          key={i}
+          value={new Date().getFullYear() - i}>
+          {new Date().getFullYear() - i}
+        </option>
+      )
+    }
+    setdateListFrom(initialDateListFrom)
+  }, [])
+  useEffect(() => {
+    const years = new Date().getFullYear() - selectedYear
+    const newDateListTo = []
+    for (let i = 0; i <= years; i++) {
+      newDateListTo.push(
+        <option
+          key={i}
+          value={new Date().getFullYear() - i}>
+          {new Date().getFullYear() - i}
+        </option>
+      )
+      setdateListTo(newDateListTo)
+    }
+  }, [selectedYear])
+
   return (
     <form
       className={styles.form}
@@ -32,29 +69,27 @@ function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
         <span className={styles.labelText}>{headings.datePickerLabel}</span>
         <div className={styles.dateField}>
           {` From `}
-          <input
+          <select
             className={styles.date}
-            type='number'
             name='dateFrom'
-            min='1900'
-            max='2100'
-            step='1'
-            value={formData.dateFrom ? formData.dateFrom : ''}
-            onChange={handleChange}
-            required
-          />
+            value={formData.dateFrom}
+            onChange={(e) => {
+              handleChange(e)
+              setselectedYear(e.target.value)
+            }}
+            required>
+            {dateListFrom}
+          </select>
           {` to `}
-          <input
+          <select
             className={styles.date}
             type='number'
             name='dateTo'
-            min='1900'
-            max='2100'
-            step='1'
-            value={formData.dateTo ? formData.dateTo : ''}
+            value={formData.dateTo}
             onChange={handleChange}
-            required
-          />
+            required>
+            {dateListTo}
+          </select>
         </div>
       </label>
 

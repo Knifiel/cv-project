@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import uniqid from 'uniqid'
-import styles from '../styles/Education.module.css'
+import styles from '../styles/WorkExpAndEducation.module.css'
 import AddCardForm from './AddCardForm'
 import Card from './Card'
 
@@ -56,7 +56,9 @@ function Education() {
         />
       ))}
 
-      <button onClick={() => setAddingUni((prev) => !prev)}>
+      <button
+        className={styles.button}
+        onClick={() => setAddingUni((prev) => !prev)}>
         {!addingUni ? 'Add university' : 'Cancel'}
       </button>
       {addingUni && (
