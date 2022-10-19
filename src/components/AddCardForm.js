@@ -78,7 +78,6 @@ function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
           <select
             className={styles.date}
             name='dateFrom'
-            defaultValue={formData.dateFrom}
             value={formData.dateFrom}
             onChange={(e) => {
               handleChange(e)
@@ -92,7 +91,6 @@ function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
             className={styles.date}
             type='number'
             name='dateTo'
-            defaultValue={formData.dateTo}
             value={formData.dateTo}
             onChange={handleChange}
             required>
