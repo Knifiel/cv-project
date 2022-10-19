@@ -7,7 +7,10 @@ import Card from './Card'
 function WorkExperience() {
   const [workplaces, setWorkplaces] = useState([])
   const [addingWorkplace, setAddingWorkplace] = useState(false)
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({
+    dateFrom: new Date().getFullYear(),
+    dateTo: new Date().getFullYear(),
+  })
 
   const handleChange = (e) => {
     const value = e.target.value

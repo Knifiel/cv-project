@@ -7,7 +7,10 @@ import Card from './Card'
 function Education() {
   const [unis, setUnis] = useState([])
   const [addingUni, setAddingUni] = useState(false)
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({
+    dateFrom: new Date().getFullYear(),
+    dateTo: new Date().getFullYear(),
+  })
 
   const handleChange = (e) => {
     const value = e.target.value
@@ -55,7 +58,6 @@ function Education() {
           handleEdit={handleEdit}
         />
       ))}
-
       <button
         className={styles.button}
         onClick={() => setAddingUni((prev) => !prev)}>

@@ -3,7 +3,13 @@ import styles from '../styles/AddCardForm.module.css'
 
 function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
   const [selectedYear, setselectedYear] = useState(new Date().getFullYear())
-  const [dateListTo, setdateListTo] = useState([])
+  const [dateListTo, setdateListTo] = useState([
+    <option
+      key='0'
+      value={new Date().getFullYear()}>
+      {new Date().getFullYear()}
+    </option>,
+  ])
   const [dateListFrom, setdateListFrom] = useState([
     <option
       key='0'
@@ -72,6 +78,7 @@ function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
           <select
             className={styles.date}
             name='dateFrom'
+            defaultValue={formData.dateFrom}
             value={formData.dateFrom}
             onChange={(e) => {
               handleChange(e)
@@ -85,6 +92,7 @@ function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
             className={styles.date}
             type='number'
             name='dateTo'
+            defaultValue={formData.dateTo}
             value={formData.dateTo}
             onChange={handleChange}
             required>
