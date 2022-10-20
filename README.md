@@ -1,3 +1,3 @@
-First version of CV-project from ToP cirriculum
-Looks hideous
-Will redo it for class components when the time comes and, most likely, change layout for something that doesn't hurt my eyes to see too.
+CV project for ToP curriculum.
+Made with functional components.
+css was an afterthought, but i tried to make it look not hideous.
