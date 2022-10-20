@@ -53,6 +53,7 @@ function WorkExperience() {
         <Card
           card={workplace}
           key={workplace.id}
+          id={workplace.id}
           headings={headings}
           handleDelete={handleDelete}
           handleEdit={handleEdit}
@@ -70,6 +71,7 @@ function WorkExperience() {
           headings={headings}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          id='workExp'
         />
       )}
     </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles/Card.module.css'
 import AddCardForm from './AddCardForm'
 
-const Card = ({ card, headings, handleDelete, handleEdit }) => {
+const Card = ({ card, headings, handleDelete, handleEdit, id }) => {
   const [isEditing, setIsEditing] = useState(false)
   const [formData, setFormData] = useState({})
 
@@ -21,6 +21,7 @@ const Card = ({ card, headings, handleDelete, handleEdit }) => {
     setIsEditing(false)
     handleEdit(formData)
   }
+
   return (
     <div>
       {isEditing ? (
@@ -29,6 +30,7 @@ const Card = ({ card, headings, handleDelete, handleEdit }) => {
           headings={headings}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          id={id}
         />
       ) : (
         <div className={styles.card}>

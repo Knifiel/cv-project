@@ -1,13 +1,30 @@
 import styles from '../styles/AboutUser.module.css'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import emailLogo from '../resources/email.svg'
 import phoneLogo from '../resources/phone.svg'
 import mapLogo from '../resources/map-marker.svg'
 import linkedinLogo from '../resources/linkedin.svg'
+import { CanPrintContext } from './CanPrintProvider'
 
 export const AboutUser = () => {
   const [formData, setFormData] = useState({})
   const [isEditing, setIsEditing] = useState(false)
+  const [canPrint, setCanPrint] = useContext(CanPrintContext)
+
+  useEffect(() => {
+    if (isEditing) {
+      if (!canPrint.includes('about')) {
+        const newList = [...canPrint, 'about']
+        setCanPrint(newList)
+      }
+    } else {
+      if (canPrint.includes('about')) {
+        const newList = canPrint.filter((n) => n !== 'about')
+        setCanPrint(newList)
+      }
+    }
+  }, [canPrint, isEditing, setCanPrint])
+
   const handleChange = (e) => {
     const value = e.target.value
     const name = e.target.name

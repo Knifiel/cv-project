@@ -53,6 +53,7 @@ function Education() {
         <Card
           card={uni}
           key={uni.id}
+          id={uni.id}
           headings={headings}
           handleDelete={handleDelete}
           handleEdit={handleEdit}
@@ -69,6 +70,7 @@ function Education() {
           headings={headings}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          id='addUni'
         />
       )}
     </div>

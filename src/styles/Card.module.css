@@ -32,6 +32,7 @@
 }
 .timePeriod {
   font-size: 0.8em;
+  min-width: 5em;
 }
 .desc {
   font-size: 1em;

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from '../styles/AddCardForm.module.css'
+import { CanPrintContext } from './CanPrintProvider'
 
-function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
+function AddCardForm({ formData, headings, handleChange, handleSubmit, id }) {
   const [selectedYear, setselectedYear] = useState(new Date().getFullYear())
   const [dateListTo, setdateListTo] = useState([
     <option
@@ -17,6 +18,20 @@ function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
       {new Date().getFullYear()}
     </option>,
   ])
+
+  const [canPrint, setCanPrint] = useContext(CanPrintContext)
+
+  useEffect(() => {
+    if (!canPrint.includes(id)) {
+      const newList = [...canPrint, id]
+      setCanPrint(newList)
+    }
+    return () => {
+      const newList = canPrint.filter((n) => n !== id)
+      setCanPrint(newList)
+    }
+  }, [])
+
   useEffect(() => {
     const initialDateListFrom = []
     for (let i = 0; i < 60; i++) {
@@ -48,7 +63,11 @@ function AddCardForm({ formData, headings, handleChange, handleSubmit }) {
   return (
     <form
       className={styles.form}
-      onSubmit={handleSubmit}>
+      onSubmit={(e) => {
+        handleSubmit(e)
+        const newList = canPrint.filter((n) => n !== id)
+        setCanPrint(newList)
+      }}>
       <label>
         <span className={styles.labelText}>{headings.titleLabel}</span>
         <input

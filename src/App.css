@@ -8,9 +8,17 @@
   background: white;
   box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
   margin: 0 auto;
+  align-items: center;
 }
 
-button:hover {
+button:hover:not([disabled]) {
   cursor: pointer;
   box-shadow: 0 0 5px 3px grey;
+}
+
+.printCV {
+  font-size: clamp(2em, 6vw, 2rem);
+  padding: 0 5px;
+  width: fit-content;
+  align-self: flex-end;
 }

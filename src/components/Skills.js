@@ -1,10 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import styles from '../styles/Skills.module.css'
+import { CanPrintContext } from './CanPrintProvider'
 
-function Skills() {
+function Skills({ isPrinting }) {
   const [skills, setSkills] = useState('')
   const [skillList, setSkillList] = useState([])
   const [isEditing, setIsEditing] = useState(true)
+
+  const [canPrint, setCanPrint] = useContext(CanPrintContext)
+
+  useEffect(() => {
+    if (isEditing) {
+      if (!canPrint.includes('skills')) {
+        const newList = [...canPrint, 'skills']
+        setCanPrint(newList)
+      }
+    } else {
+      if (canPrint.includes('skills')) {
+        const newList = canPrint.filter((n) => n !== 'skills')
+        setCanPrint(newList)
+      }
+    }
+  }, [canPrint, isEditing, setCanPrint])
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setIsEditing(false)

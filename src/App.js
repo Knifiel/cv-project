@@ -4,14 +4,21 @@ import WorkExperience from './components/WorkExperience'
 import './App.css'
 import Education from './components/Education'
 import Skills from './components/Skills'
+import PrintButton from './components/PrintButton'
+import CanPrintProvider from './components/CanPrintProvider'
 
-function App() {
+export const PrintContext = React.createContext(null)
+
+const App = () => {
   return (
     <div className='App'>
-      <AboutUser />
-      <WorkExperience />
-      <Education />
-      <Skills />
+      <CanPrintProvider>
+        <AboutUser />
+        <WorkExperience />
+        <Education />
+        <Skills />
+        <PrintButton />
+      </CanPrintProvider>
     </div>
   )
 }
